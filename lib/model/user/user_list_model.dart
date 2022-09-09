@@ -1,10 +1,10 @@
 import 'package:bill_splitter/model/user/user_model.dart';
 
-class UserSave {
+class UserListModel {
   static final List<User> _userList = [];
 
   void addUser(User user) {
-    UserSave._userList.add(user);
+    UserListModel._userList.add(user);
   }
 
   List<User> getUsers() {

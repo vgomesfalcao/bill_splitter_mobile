@@ -1,6 +1,6 @@
 import 'package:bill_splitter/model/user/user_model.dart';
-import 'package:bill_splitter/model/user/user_save_model.dart';
-import 'package:bill_splitter/views/user/formulario_user_view.dart';
+import 'package:bill_splitter/model/user/user_list_model.dart';
+import 'package:bill_splitter/views/user/form_user_view.dart';
 import 'package:flutter/material.dart';
 
 class UserList extends StatefulWidget {
@@ -21,9 +21,9 @@ class UserListState extends State<UserList> {
         title: Text(_appbarUsersTitle),
       ),
       body: ListView.builder(
-          itemCount: UserSave().getUsers().length,
+          itemCount: UserListModel().getUsers().length,
           itemBuilder: (context, index) {
-            return UserItem(UserSave().getUsers()[index]);
+            return UserItem(UserListModel().getUsers()[index]);
           }),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
@@ -38,7 +38,7 @@ class UserListState extends State<UserList> {
 
   void _update(User receivedUser) {
     setState(() {
-      UserSave().addUser(receivedUser);
+      UserListModel().addUser(receivedUser);
     });
   }
 }

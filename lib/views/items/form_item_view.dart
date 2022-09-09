@@ -4,7 +4,7 @@ import 'package:bill_splitter/controller/bill_controller.dart';
 import 'package:bill_splitter/controller/checkbox_controller.dart';
 import 'package:bill_splitter/model/bill/item_model.dart';
 import 'package:bill_splitter/model/user/user_model.dart';
-import 'package:bill_splitter/model/user/user_save_model.dart';
+import 'package:bill_splitter/model/user/user_list_model.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -29,7 +29,7 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
   final String _labelFieldValue = 'Valor';
   final String _hintFieldValue = 'R\$ 0.00';
   final Map<String, dynamic> _states = {};
-  final List<User> _users = UserSave().getUsers();
+  final List<User> _users = UserListModel().getUsers();
 
   static const _locale = 'pt_BR';
   String get _currency =>

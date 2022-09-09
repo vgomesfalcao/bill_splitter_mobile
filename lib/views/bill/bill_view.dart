@@ -1,5 +1,5 @@
 import 'package:bill_splitter/model/bill/bill_model.dart';
-import 'package:bill_splitter/model/user/user_save_model.dart';
+import 'package:bill_splitter/model/user/user_list_model.dart';
 import 'package:flutter/material.dart';
 
 class BillScreen extends StatefulWidget {
@@ -15,16 +15,16 @@ class _BillScreenState extends State<BillScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Total')),
       body: ListView.builder(
-          itemCount: UserSave().getUsers().length,
+          itemCount: UserListModel().getUsers().length,
           itemBuilder: (context, index) {
             return Card(
               child: ListTile(
                 leading: const Center(
                     widthFactor: 0.6,
                     child: Icon(Icons.monetization_on_outlined, size: 60)),
-                title: Text(UserSave().getUsers()[index].name),
+                title: Text(UserListModel().getUsers()[index].name),
                 subtitle: Text(
-                  'R\$ ${Bill().getUserBill(UserSave().getUsers()[index].name)}',
+                  'R\$ ${Bill().getUserBill(UserListModel().getUsers()[index].name)}',
                 ),
                 isThreeLine: true,
               ),

@@ -1,6 +1,6 @@
 import 'package:bill_splitter/model/bill/item_model.dart';
-import 'package:bill_splitter/model/user/user_save_model.dart';
-import 'package:bill_splitter/views/items/formulario_item_view.dart';
+import 'package:bill_splitter/model/user/user_list_model.dart';
+import 'package:bill_splitter/views/items/form_item_view.dart';
 import 'package:flutter/material.dart';
 
 class ItemList extends StatefulWidget {
@@ -26,7 +26,7 @@ class _ItemListState extends State<ItemList> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (UserSave().getUsers().length >= 2) {
+          if (UserListModel().getUsers().length >= 2) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const ItemRegisterForm();
             })).then((receivedItem) => _update(receivedItem));
