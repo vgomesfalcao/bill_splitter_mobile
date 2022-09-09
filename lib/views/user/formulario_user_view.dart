@@ -1,9 +1,10 @@
-import 'package:bill_splitter/components/userEditor.dart';
-import 'package:bill_splitter/model/user/user.dart';
-import 'package:bill_splitter/model/user/userSave.dart';
+import 'package:bill_splitter/components/user_editor_component.dart';
+import 'package:bill_splitter/model/user/user_model.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterForm extends StatefulWidget {
+  const UserRegisterForm({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return UserRegisterFormState();

@@ -1,10 +1,10 @@
-import 'package:bill_splitter/model/user/user.dart';
-import 'package:bill_splitter/model/user/userSave.dart';
-import 'package:bill_splitter/screens/user/formulario.dart';
+import 'package:bill_splitter/model/user/user_model.dart';
+import 'package:bill_splitter/model/user/user_save_model.dart';
+import 'package:bill_splitter/views/user/formulario_user_view.dart';
 import 'package:flutter/material.dart';
 
 class UserList extends StatefulWidget {
-  UserList({Key? key}) : super(key: key);
+  const UserList({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -26,10 +26,10 @@ class UserListState extends State<UserList> {
             return UserItem(UserSave().getUsers()[index]);
           }),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return UserRegisterForm();
+            return const UserRegisterForm();
           })).then((receivedUser) => _update(receivedUser));
         },
       ),

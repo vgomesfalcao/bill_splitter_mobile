@@ -1,9 +1,7 @@
-import 'package:bill_splitter/model/bill/item.dart';
-import 'package:bill_splitter/model/user/userSave.dart';
-import 'package:bill_splitter/screens/items/formulario.dart';
+import 'package:bill_splitter/model/bill/item_model.dart';
+import 'package:bill_splitter/model/user/user_save_model.dart';
+import 'package:bill_splitter/views/items/formulario_item_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ItemList extends StatefulWidget {
   final List<BillItem> _items = [];
@@ -30,7 +28,7 @@ class _ItemListState extends State<ItemList> {
         onPressed: () {
           if (UserSave().getUsers().length >= 2) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return ItemRegisterForm();
+              return const ItemRegisterForm();
             })).then((receivedItem) => _update(receivedItem));
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -40,7 +38,7 @@ class _ItemListState extends State<ItemList> {
             );
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

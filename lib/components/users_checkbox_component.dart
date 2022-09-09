@@ -1,4 +1,4 @@
-import 'package:bill_splitter/controller/checkboxController.dart';
+import 'package:bill_splitter/controller/checkbox_controller.dart';
 import 'package:flutter/material.dart';
 
 class UsersCheckbox extends StatefulWidget {

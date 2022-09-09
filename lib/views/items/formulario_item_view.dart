@@ -1,10 +1,10 @@
-import 'package:bill_splitter/components/itemEditor.dart';
-import 'package:bill_splitter/components/usersCheckbox.dart';
-import 'package:bill_splitter/controller/billController.dart';
-import 'package:bill_splitter/controller/checkboxController.dart';
-import 'package:bill_splitter/model/bill/item.dart';
-import 'package:bill_splitter/model/user/user.dart';
-import 'package:bill_splitter/model/user/userSave.dart';
+import 'package:bill_splitter/components/item_editor_component.dart';
+import 'package:bill_splitter/components/users_checkbox_component.dart';
+import 'package:bill_splitter/controller/bill_controller.dart';
+import 'package:bill_splitter/controller/checkbox_controller.dart';
+import 'package:bill_splitter/model/bill/item_model.dart';
+import 'package:bill_splitter/model/user/user_model.dart';
+import 'package:bill_splitter/model/user/user_save_model.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -97,13 +97,13 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
   }
 
   List<Widget> _createCheckboxList() {
-    Map<String, dynamic> _states = _getStates();
+    Map<String, dynamic> states = _getStates();
 
     List<UsersCheckbox> checkboxes = [];
     for (var user in _users) {
       checkboxes.add(UsersCheckbox(
-        name: _states[user.name]['name'],
-        checkboxController: _states[user.name]['controller'],
+        name: states[user.name]['name'],
+        checkboxController: states[user.name]['controller'],
       ));
     }
     return checkboxes;
@@ -121,18 +121,18 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
   }
 
   List<User> _getUserList() {
-    final List<User> _selectedUsers = [];
+    final List<User> selectedUsers = [];
     for (var user in _users) {
       if (_states[user.name]['controller'].getValue()) {
-        _selectedUsers.add(_states[user.name]['object']);
+        selectedUsers.add(_states[user.name]['object']);
       }
     }
-    return _selectedUsers;
+    return selectedUsers;
   }
 
   double? _convertItemValue() {
     double? parsedItem = double.tryParse(
-      _valueFieldController.text.replaceAll(new RegExp(r"\D"), ""),
+      _valueFieldController.text.replaceAll(RegExp(r"\D"), ""),
     );
     return parsedItem! / 100;
   }

@@ -1,4 +1,4 @@
-import 'package:bill_splitter/model/user/user.dart';
+import 'package:bill_splitter/model/user/user_model.dart';
 
 class UserSave {
   static final List<User> _userList = [];

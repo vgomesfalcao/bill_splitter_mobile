@@ -1,8 +1,8 @@
-import 'package:bill_splitter/model/bill/item.dart';
-import 'package:bill_splitter/model/user/user.dart';
+import 'package:bill_splitter/model/bill/item_model.dart';
+import 'package:bill_splitter/model/user/user_model.dart';
 
 class Bill {
-  static List<BillItem> _billItemList = [];
+  static final List<BillItem> _billItemList = [];
 
   String getTotalBill() {
     double totalValue = 0.0;
