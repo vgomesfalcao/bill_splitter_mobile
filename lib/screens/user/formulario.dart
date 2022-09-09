@@ -1,5 +1,6 @@
 import 'package:bill_splitter/components/userEditor.dart';
-import 'package:bill_splitter/model/user.dart';
+import 'package:bill_splitter/model/user/user.dart';
+import 'package:bill_splitter/model/user/userSave.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterForm extends StatefulWidget {
@@ -24,7 +25,7 @@ class UserRegisterFormState extends State<UserRegisterForm> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Editor(
+            UserEditor(
               controller: _nameFieldController,
               label: _labelFieldName,
               hint: _hintFieldName,

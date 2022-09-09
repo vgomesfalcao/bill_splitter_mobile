@@ -5,6 +5,6 @@ class User {
 
   @override
   String toString() {
-    return 'Usuário criado:$name';
+    return name;
   }
 }

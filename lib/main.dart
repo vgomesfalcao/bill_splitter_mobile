@@ -1,8 +1,11 @@
+import 'package:bill_splitter/controller/billController.dart';
+import 'package:bill_splitter/screens/bill/bill.dart';
+import 'package:bill_splitter/screens/items/list.dart';
 import 'package:bill_splitter/screens/user/list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  return runApp(BillSplitter());
+  return runApp(const BillSplitter());
 }
 
 class BillSplitter extends StatelessWidget {
@@ -10,9 +13,13 @@ class BillSplitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: UserList(),
-    );
+    return AnimatedBuilder(
+        animation: BillController.instance,
+        builder: (context, child) {
+          return MaterialApp(
+            home: NavigationBar(),
+          );
+        });
   }
 }
 
@@ -25,10 +32,10 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Pagina 1'),
-    Text('Pagina 2'),
-    Text('Pagina 2')
+  static final List<Widget> _widgetOptions = <Widget>[
+    UserList(),
+    ItemList(),
+    BillScreen()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -39,15 +46,8 @@ class _NavigationBarState extends State<NavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _widgetOptions[_selectedIndex],
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

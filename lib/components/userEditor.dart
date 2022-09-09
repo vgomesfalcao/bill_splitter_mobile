@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Editor extends StatelessWidget {
+class UserEditor extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
 
-  const Editor({
+  const UserEditor({
     super.key,
     required this.controller,
     required this.label,

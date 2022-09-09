@@ -1,10 +1,9 @@
-import 'package:bill_splitter/model/user.dart';
+import 'package:bill_splitter/model/user/user.dart';
+import 'package:bill_splitter/model/user/userSave.dart';
 import 'package:bill_splitter/screens/user/formulario.dart';
 import 'package:flutter/material.dart';
 
 class UserList extends StatefulWidget {
-  final List<User> _users = [];
-
   UserList({Key? key}) : super(key: key);
 
   @override
@@ -14,7 +13,7 @@ class UserList extends StatefulWidget {
 }
 
 class UserListState extends State<UserList> {
-  final String _appbarUsersTitle = 'Usuários';
+  final String _appbarUsersTitle = 'Pessoas';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +21,9 @@ class UserListState extends State<UserList> {
         title: Text(_appbarUsersTitle),
       ),
       body: ListView.builder(
-          itemCount: widget._users.length,
+          itemCount: UserSave().getUsers().length,
           itemBuilder: (context, index) {
-            return UserItem(widget._users[index]);
+            return UserItem(UserSave().getUsers()[index]);
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -39,7 +38,7 @@ class UserListState extends State<UserList> {
 
   void _update(User receivedUser) {
     setState(() {
-      widget._users.add(receivedUser);
+      UserSave().addUser(receivedUser);
     });
   }
 }
