@@ -1,7 +1,6 @@
 import 'package:bill_splitter/components/item_editor_component.dart';
 import 'package:bill_splitter/components/users_checkbox_component.dart';
-import 'package:bill_splitter/controller/bill_controller.dart';
-import 'package:bill_splitter/controller/checkbox_controller.dart';
+import 'package:bill_splitter/controller/form_item_controller.dart';
 import 'package:bill_splitter/model/bill/item_model.dart';
 import 'package:bill_splitter/model/user/user_model.dart';
 import 'package:bill_splitter/model/user/user_list_model.dart';
@@ -28,7 +27,8 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
   final String _buttonFieldName = 'Confirmar';
   final String _labelFieldValue = 'Valor';
   final String _hintFieldValue = 'R\$ 0.00';
-  final Map<String, dynamic> _states = {};
+  final FormItemController _formItemcontroller = FormItemController();
+
   final List<User> _users = UserListModel().getUsers();
 
   static const _locale = 'pt_BR';
@@ -66,11 +66,11 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
             ElevatedButton(
               onPressed: () {
                 final String itemLabel = _descriptionFieldController.text;
-                final double? itemValue = _convertItemValue();
-                if (_getUserList().isNotEmpty) {
-                  final createdBill =
-                      BillItem(itemLabel, itemValue!, _getUserList());
-                  BillController.instance.updateValues();
+                final double? itemValue = _formItemcontroller
+                    .convertNumberStringToValue(_valueFieldController.text);
+                if (_formItemcontroller.getUserList().isNotEmpty) {
+                  final createdBill = BillItem(
+                      itemLabel, itemValue!, _formItemcontroller.getUserList());
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('$createdBill'),
@@ -97,7 +97,7 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
   }
 
   List<Widget> _createCheckboxList() {
-    Map<String, dynamic> states = _getStates();
+    Map<String, dynamic> states = _formItemcontroller.getStates();
 
     List<UsersCheckbox> checkboxes = [];
     for (var user in _users) {
@@ -107,33 +107,5 @@ class ItemRegisterFormState extends State<ItemRegisterForm> {
       ));
     }
     return checkboxes;
-  }
-
-  Map<String, dynamic> _getStates() {
-    for (var user in _users) {
-      _states[user.name] = {
-        'name': user.name,
-        'controller': CheckboxController(),
-        'object': user
-      };
-    }
-    return _states;
-  }
-
-  List<User> _getUserList() {
-    final List<User> selectedUsers = [];
-    for (var user in _users) {
-      if (_states[user.name]['controller'].getValue()) {
-        selectedUsers.add(_states[user.name]['object']);
-      }
-    }
-    return selectedUsers;
-  }
-
-  double? _convertItemValue() {
-    double? parsedItem = double.tryParse(
-      _valueFieldController.text.replaceAll(RegExp(r"\D"), ""),
-    );
-    return parsedItem! / 100;
   }
 }

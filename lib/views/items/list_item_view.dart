@@ -1,10 +1,10 @@
+import 'package:bill_splitter/model/bill/bill_model.dart';
 import 'package:bill_splitter/model/bill/item_model.dart';
 import 'package:bill_splitter/model/user/user_list_model.dart';
 import 'package:bill_splitter/views/items/form_item_view.dart';
 import 'package:flutter/material.dart';
 
 class ItemList extends StatefulWidget {
-  final List<BillItem> _items = [];
   ItemList({Key? key}) : super(key: key);
 
   @override
@@ -20,9 +20,9 @@ class _ItemListState extends State<ItemList> {
         title: Text(_itemListTitle),
       ),
       body: ListView.builder(
-          itemCount: widget._items.length,
+          itemCount: Bill().getBillList().length,
           itemBuilder: (context, index) {
-            return ItemItem(widget._items[index]);
+            return ItemRow(Bill().getBillList()[index]);
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -45,15 +45,15 @@ class _ItemListState extends State<ItemList> {
 
   void _update(BillItem receivedItem) {
     setState(() {
-      widget._items.add(receivedItem);
+      Bill().addBillItem(receivedItem);
     });
   }
 }
 
-class ItemItem extends StatelessWidget {
+class ItemRow extends StatelessWidget {
   final BillItem _item;
 
-  const ItemItem(this._item);
+  const ItemRow(this._item);
 
   @override
   Widget build(BuildContext context) {

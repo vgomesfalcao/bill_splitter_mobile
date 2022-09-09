@@ -1,4 +1,4 @@
-import 'package:bill_splitter/controller/bill_controller.dart';
+import 'package:bill_splitter/controller/form_item_controller.dart';
 import 'package:bill_splitter/views/bill/bill_view.dart';
 import 'package:bill_splitter/views/items/list_item_view.dart';
 import 'package:bill_splitter/views/user/list_item_view.dart';
@@ -13,13 +13,9 @@ class BillSplitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: BillController.instance,
-        builder: (context, child) {
-          return const MaterialApp(
-            home: NavigationBar(),
-          );
-        });
+    return const MaterialApp(
+      home: NavigationBar(),
+    );
   }
 }
 
@@ -35,7 +31,7 @@ class _NavigationBarState extends State<NavigationBar> {
   static final List<Widget> _widgetOptions = <Widget>[
     UserList(),
     ItemList(),
-    const BillScreen()
+    BillScreen()
   ];
   void _onItemTapped(int index) {
     setState(() {
