@@ -8,6 +8,7 @@ on:
       - main
       - master
       - develop
+      - cicd
 name: "Build and Release"
 jobs:
   build:
@@ -23,13 +24,14 @@ jobs:
         with:
           channel: stable
           flutter-version: '3.0.0'
-      - run: flutter pub get
-      - run: flutter build apk --debug --split-per-abi
-      - run: flutter build appbundle
+      - run: flutter --version
+      # - run: flutter pub get
+      # - run: flutter build apk --debug --split-per-abi
+      # - run: flutter build appbundle
 
-      - name: Push to Releases
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/apk/debug/*"
-          tag: v1.0${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
+      # - name: Push to Releases
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     artifacts: "build/app/outputs/apk/debug/*"
+      #     tag: v1.0${{ github.run_number }}
+      #     token: ${{ secrets.TOKEN }}
