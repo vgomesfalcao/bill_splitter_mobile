@@ -23,15 +23,16 @@ jobs:
       - uses: subosito/flutter-action@v2.7.1
         with:
           channel: stable
-          flutter-version: '3.0.0'
+          flutter-version: '3.3.2'
+      # - run: flutter pub update
       - run: flutter --version
-      # - run: flutter pub get
-      # - run: flutter build apk --debug --split-per-abi
-      # - run: flutter build appbundle
+      - run: flutter pub get
+      - run: flutter build apk --debug --split-per-abi
+      - run: flutter build appbundle
 
-      # - name: Push to Releases
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     artifacts: "build/app/outputs/apk/debug/*"
-      #     tag: v1.0${{ github.run_number }}
-      #     token: ${{ secrets.TOKEN }}
+      - name: Push to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/debug/*"
+          tag: v1.0${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
