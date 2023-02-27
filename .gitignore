@@ -45,3 +45,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+MissingPluginException(No implementation found for method init on channel plugins.flutter.io/google_sign_in)
+google-services.json
