@@ -13,8 +13,10 @@ class BillSplitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginPage(),
+    return MaterialApp(
+      theme: ThemeData.from(
+          colorScheme: const ColorScheme.dark(primary: Colors.amber)),
+      home: const LoginPage(),
     );
   }
 }
