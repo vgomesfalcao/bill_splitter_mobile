@@ -1,5 +1,5 @@
-import 'package:bill_splitter/src/components/user_editor_component.dart';
-import 'package:bill_splitter/src/model/user/user_model.dart';
+import 'package:bill_splitter/src/shared/components/user_editor_component.dart';
+import 'package:bill_splitter/src/shared/models/user/user_model.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterForm extends StatefulWidget {
