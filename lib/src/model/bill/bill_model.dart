@@ -1,4 +1,4 @@
-import 'package:bill_splitter/model/bill/item_model.dart';
+import 'package:bill_splitter/src/model/bill/item_model.dart';
 
 class Bill {
   static final List<BillItem> _billItemList = [];

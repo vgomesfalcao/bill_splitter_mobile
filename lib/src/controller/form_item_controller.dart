@@ -1,8 +1,8 @@
-import 'package:bill_splitter/controller/checkbox_controller.dart';
-import 'package:bill_splitter/model/bill/bill_model.dart';
-import 'package:bill_splitter/model/user/user_list_model.dart';
-import 'package:bill_splitter/model/user/user_model.dart';
-import 'package:bill_splitter/utils/formatter.dart';
+import 'package:bill_splitter/src/controller/checkbox_controller.dart';
+import 'package:bill_splitter/src/model/bill/bill_model.dart';
+import 'package:bill_splitter/src/model/user/user_list_model.dart';
+import 'package:bill_splitter/src/model/user/user_model.dart';
+import 'package:bill_splitter/src/utils/formatter.dart';
 import 'package:flutter/material.dart';
 
 class FormItemController {

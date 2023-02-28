@@ -1,7 +1,7 @@
-import 'package:bill_splitter/views/bill/bill_view.dart';
-import 'package:bill_splitter/views/items/list_item_view.dart';
-import 'package:bill_splitter/views/login/login_page.dart';
-import 'package:bill_splitter/views/user/list_user_view.dart';
+import 'package:bill_splitter/src/views/bill/bill_view.dart';
+import 'package:bill_splitter/src/views/items/list_item_view.dart';
+import 'package:bill_splitter/src/views/login/login_page.dart';
+import 'package:bill_splitter/src/views/user/list_user_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

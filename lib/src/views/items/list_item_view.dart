@@ -1,10 +1,10 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:bill_splitter/model/bill/bill_model.dart';
-import 'package:bill_splitter/model/bill/item_model.dart';
-import 'package:bill_splitter/model/user/user_list_model.dart';
-import 'package:bill_splitter/utils/formatter.dart';
-import 'package:bill_splitter/views/items/form_item_view.dart';
+import 'package:bill_splitter/src/model/bill/bill_model.dart';
+import 'package:bill_splitter/src/model/bill/item_model.dart';
+import 'package:bill_splitter/src/model/user/user_list_model.dart';
+import 'package:bill_splitter/src/utils/formatter.dart';
+import 'package:bill_splitter/src/views/items/form_item_view.dart';
 import 'package:flutter/material.dart';
 
 class ItemList extends StatefulWidget {

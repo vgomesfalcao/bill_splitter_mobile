@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:bill_splitter/model/user/user_model.dart';
-import 'package:bill_splitter/model/user/user_list_model.dart';
-import 'package:bill_splitter/views/user/form_user_view.dart';
+import 'package:bill_splitter/src/model/user/user_model.dart';
+import 'package:bill_splitter/src/model/user/user_list_model.dart';
+import 'package:bill_splitter/src/views/user/form_user_view.dart';
 import 'package:flutter/material.dart';
 
 class UserList extends StatefulWidget {

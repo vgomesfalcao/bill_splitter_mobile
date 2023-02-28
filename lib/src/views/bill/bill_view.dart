@@ -1,6 +1,6 @@
-import 'package:bill_splitter/components/bill_list_tile_component.dart';
-import 'package:bill_splitter/components/user_bill_tile_component.dart';
-import 'package:bill_splitter/controller/form_item_controller.dart';
+import 'package:bill_splitter/src/components/bill_list_tile_component.dart';
+import 'package:bill_splitter/src/components/user_bill_tile_component.dart';
+import 'package:bill_splitter/src/controller/form_item_controller.dart';
 import 'package:flutter/material.dart';
 
 class BillScreen extends StatefulWidget {

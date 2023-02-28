@@ -1,9 +1,9 @@
-import 'package:bill_splitter/components/item_editor_component.dart';
-import 'package:bill_splitter/components/users_checkbox_component.dart';
-import 'package:bill_splitter/controller/form_item_controller.dart';
-import 'package:bill_splitter/model/bill/item_model.dart';
-import 'package:bill_splitter/model/user/user_model.dart';
-import 'package:bill_splitter/model/user/user_list_model.dart';
+import 'package:bill_splitter/src/components/item_editor_component.dart';
+import 'package:bill_splitter/src/components/users_checkbox_component.dart';
+import 'package:bill_splitter/src/controller/form_item_controller.dart';
+import 'package:bill_splitter/src/model/bill/item_model.dart';
+import 'package:bill_splitter/src/model/user/user_model.dart';
+import 'package:bill_splitter/src/model/user/user_list_model.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
