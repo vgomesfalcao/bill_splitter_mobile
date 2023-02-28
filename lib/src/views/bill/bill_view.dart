@@ -52,7 +52,9 @@ class _BillScreenState extends State<BillScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 14),
                   child: Text.rich(TextSpan(
-                      style: const TextStyle(fontSize: 20, color: Colors.white),
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Theme.of(context).colorScheme.onPrimary),
                       children: [
                         const TextSpan(
                             text: 'Total   ',
@@ -83,9 +85,11 @@ class _BillScreenState extends State<BillScreen> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-              const Text(
+              Text(
                 'Taxa Serviço',
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Theme.of(context).colorScheme.onSurface),
               ),
               Switch(
                   value: _formItemController.getTip(),

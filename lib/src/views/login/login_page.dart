@@ -25,11 +25,11 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(left: 8, bottom: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       loginText,
                       style: TextStyle(
-                          color: Colors.lightBlue,
+                          color: Theme.of(context).colorScheme.onBackground,
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
                     )

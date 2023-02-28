@@ -45,7 +45,7 @@ class _BillNavigationBarState extends State<BillNavigationBar> {
           )
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: _onItemTapped,
       ),
     );

@@ -11,7 +11,7 @@ class BillSplitter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.from(
+      darkTheme: ThemeData.from(
         colorScheme: const ColorScheme.dark(
             primary: Colors.amber,
             secondary: Colors.amberAccent,
@@ -20,6 +20,17 @@ class BillSplitter extends StatelessWidget {
             onSurfaceVariant: Colors.amber),
         useMaterial3: true,
       ),
+      theme: ThemeData.from(
+          colorScheme: const ColorScheme.light(
+              primary: Color.fromARGB(255, 0, 65, 90),
+              onPrimary: Colors.white,
+              secondary: Colors.blueGrey,
+              surface: Colors.blueGrey,
+              onSurface: Colors.white,
+              surfaceVariant: Colors.white,
+              outline: Color.fromARGB(255, 0, 65, 90)),
+          useMaterial3: true,
+          textTheme: Typography.dense2014),
       home: const BillNavigationBar(),
     );
   }
