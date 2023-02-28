@@ -1,7 +1,4 @@
-import 'package:bill_splitter/src/views/bill/bill_view.dart';
-import 'package:bill_splitter/src/views/items/list_item_view.dart';
-import 'package:bill_splitter/src/views/login/login_page.dart';
-import 'package:bill_splitter/src/views/user/list_user_view.dart';
+import 'package:bill_splitter/src/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,57 +12,15 @@ class BillSplitter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.from(
-          colorScheme: const ColorScheme.dark(primary: Colors.amber)),
-      home: const LoginPage(),
-    );
-  }
-}
-
-class NavigationBar extends StatefulWidget {
-  const NavigationBar({Key? key}) : super(key: key);
-
-  @override
-  State<NavigationBar> createState() => _NavigationBarState();
-}
-
-class _NavigationBarState extends State<NavigationBar> {
-  int _selectedIndex = 0;
-  static final List<Widget> _widgetOptions = <Widget>[
-    const UserList(),
-    const ItemList(),
-    const BillScreen()
-  ];
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        colorScheme: const ColorScheme.dark(
+            primary: Colors.amber,
+            secondary: Colors.amberAccent,
+            onSecondaryContainer: Colors.amber,
+            onSurface: Colors.amber,
+            onSurfaceVariant: Colors.amber),
+        useMaterial3: true,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: 'Pessoas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.food_bank),
-            label: 'Itens',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on),
-            label: 'Conta',
-          )
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-      ),
+      home: const BillNavigationBar(),
     );
   }
 }

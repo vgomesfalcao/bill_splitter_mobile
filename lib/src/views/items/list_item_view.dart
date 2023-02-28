@@ -1,8 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:bill_splitter/src/shared/models/bill/bill_model.dart';
-import 'package:bill_splitter/src/shared/models/bill/item_model.dart';
-import 'package:bill_splitter/src/shared/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/models/bill/bill_model.dart';
+import 'package:bill_splitter/src/models/bill/item_model.dart';
+import 'package:bill_splitter/src/models/user/user_list_model.dart';
 import 'package:bill_splitter/src/shared/utils/formatter.dart';
 import 'package:bill_splitter/src/views/items/form_item_view.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:bill_splitter/src/shared/controllers/checkbox_controller.dart';
+import 'package:bill_splitter/src/controllers/checkbox_controller.dart';
 import 'package:flutter/material.dart';
 
 /* List of users in checkbox list tile format

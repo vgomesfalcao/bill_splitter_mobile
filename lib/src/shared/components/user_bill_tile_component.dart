@@ -1,5 +1,5 @@
-import 'package:bill_splitter/src/shared/controllers/form_item_controller.dart';
-import 'package:bill_splitter/src/shared/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/controllers/form_item_controller.dart';
+import 'package:bill_splitter/src/models/user/user_list_model.dart';
 import 'package:flutter/material.dart';
 
 class UserBillTile extends StatefulWidget {

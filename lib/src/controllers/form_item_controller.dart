@@ -1,7 +1,7 @@
-import 'package:bill_splitter/src/shared/controllers/checkbox_controller.dart';
-import 'package:bill_splitter/src/shared/models/bill/bill_model.dart';
-import 'package:bill_splitter/src/shared/models/user/user_list_model.dart';
-import 'package:bill_splitter/src/shared/models/user/user_model.dart';
+import 'package:bill_splitter/src/controllers/checkbox_controller.dart';
+import 'package:bill_splitter/src/models/bill/bill_model.dart';
+import 'package:bill_splitter/src/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/models/user/user_model.dart';
 import 'package:bill_splitter/src/shared/utils/formatter.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bill_splitter/src/shared/models/user/user_model.dart';
+import 'package:bill_splitter/src/models/user/user_model.dart';
 
 class BillItem {
   final String itemLabel;
