@@ -54,7 +54,7 @@ class _BillScreenState extends State<BillScreen> {
                   child: Text.rich(TextSpan(
                       style: TextStyle(
                           fontSize: 20,
-                          color: Theme.of(context).colorScheme.onPrimary),
+                          color: Theme.of(context).colorScheme.onSurface),
                       children: [
                         const TextSpan(
                             text: 'Total   ',

@@ -29,12 +29,12 @@ class _BillListTileState extends State<BillListTile> {
       dense: true,
       leading: Icon(
         widget._icon,
-        color: Theme.of(context).colorScheme.onPrimary,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
       title: Text.rich(TextSpan(
           style: TextStyle(
               fontSize: widget._fontSize,
-              color: Theme.of(context).colorScheme.onPrimary),
+              color: Theme.of(context).colorScheme.onSurface),
           children: [TextSpan(text: widget._label)])),
       trailing: SizedBox(
         width: 100,
@@ -45,7 +45,7 @@ class _BillListTileState extends State<BillListTile> {
               child: Text.rich(TextSpan(
                   style: TextStyle(
                       fontSize: widget._fontSize,
-                      color: Theme.of(context).colorScheme.onPrimary),
+                      color: Theme.of(context).colorScheme.onSurface),
                   children: [
                     TextSpan(
                         text: widget._value,

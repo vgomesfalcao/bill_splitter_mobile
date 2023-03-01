@@ -1,4 +1,4 @@
-import 'package:bill_splitter/src/views/navigation_bar.dart';
+import 'package:bill_splitter/src/views/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,16 +22,15 @@ class BillSplitter extends StatelessWidget {
       ),
       theme: ThemeData.from(
           colorScheme: const ColorScheme.light(
-              primary: Color.fromARGB(255, 0, 65, 90),
+              primary: Color.fromARGB(255, 2, 86, 119),
               onPrimary: Colors.white,
               secondary: Colors.blueGrey,
-              surface: Colors.blueGrey,
-              onSurface: Colors.white,
+              surface: Color.fromARGB(255, 174, 219, 238),
+              onSurface: Color.fromARGB(255, 0, 27, 37),
               surfaceVariant: Colors.white,
-              outline: Color.fromARGB(255, 0, 65, 90)),
-          useMaterial3: true,
-          textTheme: Typography.dense2014),
-      home: const BillNavigationBar(),
+              outline: Color.fromARGB(255, 36, 104, 131)),
+          useMaterial3: true),
+      home: const LoginPage(),
     );
   }
 }

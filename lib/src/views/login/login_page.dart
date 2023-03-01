@@ -1,4 +1,9 @@
+import 'dart:convert';
+
+import 'package:bill_splitter/src/shared/repositories/jwt_auth_repository.dart';
+import 'package:bill_splitter/src/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,7 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController loginController = TextEditingController();
+  final TextEditingController userNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -37,8 +42,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               BillTextField(
-                text: 'Login',
-                controller: loginController,
+                text: 'Username',
+                controller: userNameController,
               ),
               BillTextField(
                 text: 'Password',
@@ -48,7 +53,27 @@ class _LoginPageState extends State<LoginPage> {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    JwtAuth authRepository = JwtAuth();
+                    Future<http.Response> authenticated = authRepository.login(
+                        username: userNameController.text,
+                        password: passwordController.text);
+                    authenticated.then((value) {
+                      if (value.statusCode == 200) {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const BillNavigationBar();
+                        }));
+                      } else {
+                        ScaffoldMessenger.of(context).clearSnackBars();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: printMessages(value),
+                          ),
+                        );
+                      }
+                    });
+                  },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4))),
@@ -63,6 +88,17 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Widget printMessages(http.Response value) {
+    var messages = jsonDecode(value.body)['message'];
+    if (value.body is List) {
+      return Column(
+          children: List.generate(messages.length, (index) {
+        return Text(messages[index].toString());
+      }));
+    }
+    return Text(messages);
   }
 }
 
