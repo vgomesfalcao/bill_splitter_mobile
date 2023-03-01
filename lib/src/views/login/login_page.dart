@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                         username: userNameController.text,
                         password: passwordController.text);
                     authenticated.then((value) {
-                      if (value.statusCode == 200) {
+                      if (false) {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return const BillNavigationBar();
@@ -92,6 +92,9 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget printMessages(http.Response value) {
     var messages = jsonDecode(value.body)['message'];
+    if (value.statusCode == 200) {
+      return Text(value.body);
+    }
     if (messages is List) {
       return Column(
           children: List.generate(messages.length, (index) {
