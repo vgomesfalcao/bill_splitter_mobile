@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget printMessages(http.Response value) {
     var messages = jsonDecode(value.body)['message'];
-    if (value.body is List) {
+    if (messages is List) {
       return Column(
           children: List.generate(messages.length, (index) {
         return Text(messages[index].toString());
