@@ -4,10 +4,11 @@ class SecureStorage {
   AndroidOptions _getAndroidOptions() => const AndroidOptions(
         encryptedSharedPreferences: true,
       );
-  final storage = const FlutterSecureStorage();
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
 
-  void save({required String key, required String value}) async {
-    await storage.write(key: key, value: value, aOptions: _getAndroidOptions());
+  void saveToken({required String value}) async {
+    await storage.write(
+        key: 'token', value: value, aOptions: _getAndroidOptions());
   }
 
   Future<String?> getToken() async {

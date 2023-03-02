@@ -1,5 +1,6 @@
-import 'package:bill_splitter/src/shared/repositories/jwt_auth_repository.dart';
-import 'package:bill_splitter/src/shared/repositories/secure_storage_repository.dart';
+import 'dart:async';
+
+import 'package:bill_splitter/src/shared/repositories/token_auth_repository.dart';
 import 'package:bill_splitter/src/views/login/login_page.dart';
 import 'package:bill_splitter/src/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,22 @@ void main() {
   return runApp(const BillSplitter());
 }
 
-class BillSplitter extends StatelessWidget {
+class BillSplitter extends StatefulWidget {
   const BillSplitter({Key? key}) : super(key: key);
+
+  @override
+  State<BillSplitter> createState() => _BillSplitterState();
+}
+
+class _BillSplitterState extends State<BillSplitter> {
+  final _streamController = StreamController<bool>();
+  TokenAuth tokenAuthRepository = TokenAuth();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +40,17 @@ class BillSplitter extends StatelessWidget {
         ),
         theme: ThemeData.from(
             colorScheme: const ColorScheme.light(
-                primary: Color.fromARGB(255, 2, 86, 119),
-                onPrimary: Colors.white,
-                secondary: Colors.blueGrey,
-                surface: Color.fromARGB(255, 174, 219, 238),
-                onSurface: Color.fromARGB(255, 0, 27, 37),
-                surfaceVariant: Colors.white,
-                outline: Color.fromARGB(255, 36, 104, 131)),
+              primary: Color.fromARGB(255, 2, 86, 119),
+              onPrimary: Colors.white,
+              secondary: Colors.blueGrey,
+              surface: Color.fromARGB(255, 174, 219, 238),
+              onSurface: Color.fromARGB(255, 0, 27, 37),
+              surfaceVariant: Colors.white,
+              outline: Color.fromARGB(255, 36, 104, 131),
+            ),
             useMaterial3: true),
-        home: FutureBuilder(
-          future: autoLogin(),
+        home: StreamBuilder(
+          stream: _streamController.stream,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               if (snapshot.data == true) {
@@ -53,15 +69,19 @@ class BillSplitter extends StatelessWidget {
         ));
   }
 
-  Future<bool> autoLogin() async {
-    SecureStorage secureStorage = SecureStorage();
-    JwtAuth jwtAuth = JwtAuth();
-    String? token = await secureStorage.getToken();
-    if (token != null) {
-      if (await jwtAuth.validateToken(token: token)) {
-        return true;
-      }
+  @override
+  void dispose() {
+    _streamController.close();
+    super.dispose();
+  }
+
+  Future _fetchData() async {
+    bool? data = await tokenAuthRepository.validateToken();
+    if (data == null) {
+      _streamController.sink.addError("No data, trying again");
+      await Future.delayed(const Duration(seconds: 20));
+      return await _fetchData();
     }
-    return false;
+    _streamController.sink.add(data);
   }
 }
