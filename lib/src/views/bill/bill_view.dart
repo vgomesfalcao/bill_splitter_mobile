@@ -1,5 +1,5 @@
-import 'package:bill_splitter/src/shared/components/bill_list_tile_component.dart';
-import 'package:bill_splitter/src/shared/components/user_bill_tile_component.dart';
+import 'package:bill_splitter/src/shared/components/bill_list_tile.dart';
+import 'package:bill_splitter/src/shared/components/user_bill_tile.dart';
 import 'package:bill_splitter/src/controllers/form_item_controller.dart';
 import 'package:flutter/material.dart';
 

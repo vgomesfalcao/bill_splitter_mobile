@@ -1,5 +1,5 @@
-import 'package:bill_splitter/src/shared/components/item_editor_component.dart';
-import 'package:bill_splitter/src/shared/components/users_checkbox_component.dart';
+import 'package:bill_splitter/src/shared/components/item_editor.dart';
+import 'package:bill_splitter/src/shared/components/users_checkbox.dart';
 import 'package:bill_splitter/src/controllers/form_item_controller.dart';
 import 'package:bill_splitter/src/models/bill/item_model.dart';
 import 'package:bill_splitter/src/models/user/user_model.dart';

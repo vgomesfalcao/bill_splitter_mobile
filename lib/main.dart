@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bill_splitter/src/shared/repositories/token_auth_repository.dart';
+import 'package:bill_splitter/src/shared/repositories/token_auth.dart';
 import 'package:bill_splitter/src/views/login/login_page.dart';
 import 'package:bill_splitter/src/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +79,7 @@ class _BillSplitterState extends State<BillSplitter> {
     bool? data = await tokenAuthRepository.validateToken();
     if (data == null) {
       _streamController.sink.addError("No data, trying again");
-      await Future.delayed(const Duration(seconds: 20));
+      await Future.delayed(const Duration(seconds: 5));
       return await _fetchData();
     }
     _streamController.sink.add(data);

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:bill_splitter/src/shared/services/jwt_auth_service.dart';
+import 'package:bill_splitter/src/shared/providers/jwt_auth.dart';
 
 class TokenAuth {
   JwtAuth jwtAuth = JwtAuth();

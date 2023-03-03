@@ -1,4 +1,4 @@
-import 'package:bill_splitter/src/shared/components/user_editor_component.dart';
+import 'package:bill_splitter/src/shared/components/user_editor.dart';
 import 'package:bill_splitter/src/models/user/user_model.dart';
 import 'package:flutter/material.dart';
 
