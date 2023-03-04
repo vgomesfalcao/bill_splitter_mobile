@@ -9,21 +9,25 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Padding(
-              padding: EdgeInsets.only(left: 8, bottom: 25),
-              child: SizedBox(
-                  height: 200,
-                  child: Image(
-                    image: AssetImage('assets/BillSplit.png'),
-                  )),
-            ),
-            AuthForm(),
-          ],
+      body: Transform.translate(
+        offset: Offset(0, -40),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8, bottom: 25),
+                child: SizedBox(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    child: const Image(
+                      image: AssetImage('assets/BillSplit.png'),
+                    )),
+              ),
+              const AuthForm(),
+            ],
+          ),
         ),
       ),
     );
