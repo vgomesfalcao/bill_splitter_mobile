@@ -16,14 +16,16 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8, bottom: 25),
-                child: SizedBox(
-                    height: 200,
-                    width: MediaQuery.of(context).size.width,
-                    child: const Image(
-                      image: AssetImage('assets/BillSplit.png'),
-                    )),
+              Container(
+                color: Theme.of(context).colorScheme.onPrimary,
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 8, bottom: 25),
+                  child: Image(
+                    image: AssetImage('assets/BillSplit.png'),
+                  ),
+                ),
               ),
               const AuthForm(),
             ],

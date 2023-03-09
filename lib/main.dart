@@ -31,11 +31,14 @@ class _BillSplitterState extends State<BillSplitter> {
     return MaterialApp(
         darkTheme: ThemeData.from(
           colorScheme: const ColorScheme.dark(
-              primary: Colors.amber,
-              secondary: Colors.amberAccent,
-              onSecondaryContainer: Colors.amber,
-              onSurface: Colors.amber,
-              onSurfaceVariant: Colors.amber),
+            primary: Color.fromARGB(255, 5, 151, 209),
+            onPrimary: Colors.white,
+            secondary: Colors.blueGrey,
+            onSecondaryContainer: Color.fromARGB(255, 5, 151, 209),
+            onSurface: Color.fromARGB(255, 125, 220, 255),
+            surfaceVariant: Colors.white,
+            onSurfaceVariant: Color.fromARGB(255, 5, 151, 209),
+          ),
           useMaterial3: true,
         ),
         theme: ThemeData.from(
