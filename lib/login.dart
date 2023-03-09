@@ -1,6 +1,6 @@
 import 'package:bill_splitter/google_login.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -20,7 +20,8 @@ class _LoginPageState extends State<LoginPage> {
             final GoogleLogin googleLogin = GoogleLogin();
             googleLogin.handleSignIn();
           },
-          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.red)),
           child: const Text('Login with G+'),
         ),
       ),
