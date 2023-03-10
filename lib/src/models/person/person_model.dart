@@ -1,7 +1,7 @@
-class User {
+class Person {
   final String name;
 
-  User(this.name);
+  Person(this.name);
 
   @override
   String toString() {

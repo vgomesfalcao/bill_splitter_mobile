@@ -1,5 +1,5 @@
 import 'package:bill_splitter/src/shared/components/user_editor.dart';
-import 'package:bill_splitter/src/models/user/user_model.dart';
+import 'package:bill_splitter/src/models/person/person_model.dart';
 import 'package:flutter/material.dart';
 
 class UserRegisterForm extends StatefulWidget {
@@ -35,7 +35,7 @@ class UserRegisterFormState extends State<UserRegisterForm> {
               onPressed: () {
                 final String userName = _nameFieldController.text;
                 if (userName != '') {
-                  final createdUser = User(userName);
+                  final createdUser = Person(userName);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('$createdUser'),

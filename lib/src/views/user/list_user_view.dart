@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:bill_splitter/src/models/user/user_model.dart';
-import 'package:bill_splitter/src/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/models/person/person_model.dart';
+import 'package:bill_splitter/src/models/person/person_list_model.dart';
 import 'package:bill_splitter/src/views/user/form_user_view.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +23,9 @@ class UserListState extends State<UserList> {
         title: Text(_appbarUsersTitle),
       ),
       body: ListView.builder(
-          itemCount: UserListModel().getUsers().length,
+          itemCount: PersonListModel().getUsers().length,
           itemBuilder: (context, index) {
-            return UserItem(UserListModel().getUsers()[index]);
+            return UserItem(PersonListModel().getUsers()[index]);
           }),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
@@ -38,15 +38,15 @@ class UserListState extends State<UserList> {
     );
   }
 
-  void _update(User receivedUser) {
+  void _update(Person receivedUser) {
     setState(() {
-      UserListModel().addUser(receivedUser);
+      PersonListModel().addUser(receivedUser);
     });
   }
 }
 
 class UserItem extends StatelessWidget {
-  final User _user;
+  final Person _user;
 
   const UserItem(this._user);
 

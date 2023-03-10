@@ -1,9 +1,9 @@
-import 'package:bill_splitter/src/models/user/user_model.dart';
+import 'package:bill_splitter/src/models/person/person_model.dart';
 
 class BillItem {
   final String itemLabel;
   final double itemValue;
-  final List<User> users;
+  final List<Person> users;
 
   BillItem(this.itemLabel, this.itemValue, this.users);
 

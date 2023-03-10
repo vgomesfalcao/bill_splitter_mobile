@@ -1,12 +1,12 @@
 import 'package:bill_splitter/src/controllers/checkbox_controller.dart';
 import 'package:bill_splitter/src/models/bill/bill_model.dart';
-import 'package:bill_splitter/src/models/user/user_list_model.dart';
-import 'package:bill_splitter/src/models/user/user_model.dart';
+import 'package:bill_splitter/src/models/person/person_list_model.dart';
+import 'package:bill_splitter/src/models/person/person_model.dart';
 import 'package:bill_splitter/src/shared/utils/formatter.dart';
 import 'package:flutter/material.dart';
 
 class FormItemController {
-  final List<User> _users = UserListModel().getUsers();
+  final List<Person> _users = PersonListModel().getUsers();
   final Map<String, dynamic> _states = {};
   static bool tip = false;
   final _formatterWithIcon = Formatter();
@@ -146,8 +146,8 @@ class FormItemController {
     return _states;
   }
 
-  List<User> getUserList() {
-    final List<User> selectedUsers = [];
+  List<Person> getUserList() {
+    final List<Person> selectedUsers = [];
     for (var user in _users) {
       if (_states[user.name]['controller'].getValue()) {
         selectedUsers.add(_states[user.name]['object']);

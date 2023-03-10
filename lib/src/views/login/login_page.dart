@@ -16,16 +16,17 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 200,
-                width: MediaQuery.of(context).size.width,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, bottom: 25),
-                  child: Image(
-                    image: getLogoImage(context),
+              if (MediaQuery.of(context).viewInsets.bottom == 0)
+                SizedBox(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, bottom: 25),
+                    child: Image(
+                      image: getLogoImage(context),
+                    ),
                   ),
                 ),
-              ),
               const AuthForm(),
             ],
           ),

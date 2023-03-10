@@ -1,5 +1,5 @@
 import 'package:bill_splitter/src/controllers/form_item_controller.dart';
-import 'package:bill_splitter/src/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/models/person/person_list_model.dart';
 import 'package:flutter/material.dart';
 
 class UserBillTile extends StatefulWidget {
@@ -19,7 +19,7 @@ class _UserBillTileState extends State<UserBillTile> {
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
-        itemCount: UserListModel().getUsers().length,
+        itemCount: PersonListModel().getUsers().length,
         itemBuilder: (context, index) {
           return Card(
             child: ExpansionTile(
@@ -30,7 +30,7 @@ class _UserBillTileState extends State<UserBillTile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      UserListModel().getUsers()[index].name,
+                      PersonListModel().getUsers()[index].name,
                     ),
                     Text(
                       widget._formItemController

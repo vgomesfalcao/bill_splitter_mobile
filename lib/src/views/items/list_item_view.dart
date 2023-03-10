@@ -2,7 +2,7 @@
 
 import 'package:bill_splitter/src/models/bill/bill_model.dart';
 import 'package:bill_splitter/src/models/bill/item_model.dart';
-import 'package:bill_splitter/src/models/user/user_list_model.dart';
+import 'package:bill_splitter/src/models/person/person_list_model.dart';
 import 'package:bill_splitter/src/shared/utils/formatter.dart';
 import 'package:bill_splitter/src/views/items/form_item_view.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class _ItemListState extends State<ItemList> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          if (UserListModel().getUsers().length >= 2) {
+          if (PersonListModel().getUsers().length >= 2) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const ItemRegisterForm();
             })).then((receivedItem) => _update(receivedItem));
