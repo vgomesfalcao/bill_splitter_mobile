@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bill_splitter/src/shared/repositories/token_auth.dart';
+import 'package:bill_splitter/src/shared/repositories/token_auth_repository.dart';
 import 'package:bill_splitter/src/views/login/login_page.dart';
 import 'package:bill_splitter/src/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +61,7 @@ class _BillSplitterState extends State<BillSplitter> {
                 return const BillNavigationBar();
               }
               if (snapshot.data == false) {
-                return const BillNavigationBar();
+                return const LoginPage();
               }
             }
             return const Scaffold(

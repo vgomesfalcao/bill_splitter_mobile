@@ -1,4 +1,4 @@
-import 'package:bill_splitter/src/shared/repositories/secure_storage.dart';
+import 'package:bill_splitter/src/shared/repositories/secure_storage_repository.dart';
 
 class JwtAuth {
   final String url = 'http://134.65.242.199:3000';
