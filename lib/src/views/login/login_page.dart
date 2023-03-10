@@ -10,20 +10,19 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Transform.translate(
-        offset: Offset(0, -40),
+        offset: const Offset(0, -40),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                color: Theme.of(context).colorScheme.onPrimary,
+              SizedBox(
                 height: 200,
                 width: MediaQuery.of(context).size.width,
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 8, bottom: 25),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, bottom: 25),
                   child: Image(
-                    image: AssetImage('assets/BillSplit.png'),
+                    image: getLogoImage(context),
                   ),
                 ),
               ),
@@ -33,5 +32,12 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  AssetImage getLogoImage(context) {
+    if (Theme.of(context).brightness == Brightness.dark) {
+      return const AssetImage('assets/bill_split_dark.png');
+    }
+    return const AssetImage('assets/bill_split_light.png');
   }
 }

@@ -31,12 +31,13 @@ class _BillSplitterState extends State<BillSplitter> {
     return MaterialApp(
         darkTheme: ThemeData.from(
           colorScheme: const ColorScheme.dark(
-            primary: Color.fromARGB(255, 5, 151, 209),
+            primary: Color.fromARGB(255, 7, 119, 163),
             onPrimary: Colors.white,
             secondary: Colors.blueGrey,
             onSecondaryContainer: Color.fromARGB(255, 5, 151, 209),
-            onSurface: Color.fromARGB(255, 125, 220, 255),
-            surfaceVariant: Colors.white,
+            surface: Color.fromARGB(255, 2, 53, 73),
+            onSurface: Colors.white,
+            surfaceVariant: Color.fromARGB(255, 0, 27, 37),
             onSurfaceVariant: Color.fromARGB(255, 5, 151, 209),
           ),
           useMaterial3: true,
@@ -60,7 +61,7 @@ class _BillSplitterState extends State<BillSplitter> {
                 return const BillNavigationBar();
               }
               if (snapshot.data == false) {
-                return const LoginPage();
+                return const BillNavigationBar();
               }
             }
             return const Scaffold(

@@ -57,7 +57,6 @@ class _AuthFormState extends State<AuthForm> {
     if (response.statusCode == 200) {
       TokenAuth tokenAuth = TokenAuth();
       tokenAuth.validateToken().then((value) {
-        print(value);
         if (value == true) {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) {
@@ -115,11 +114,16 @@ class _AuthFormState extends State<AuthForm> {
                     child: ElevatedButton(
                       onPressed: _submit,
                       style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surface,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4))),
                       child: Text(
                         loginText,
-                        style: const TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Theme.of(context).colorScheme.onSurface,
+                        ),
                       ),
                     ),
                   )
