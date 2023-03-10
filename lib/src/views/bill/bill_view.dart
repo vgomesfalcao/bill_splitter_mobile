@@ -26,7 +26,7 @@ class _BillScreenState extends State<BillScreen> {
                 bottomLeft: Radius.circular(60),
                 bottomRight: Radius.circular(60))),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(150),
+          preferredSize: const Size.fromHeight(180),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
